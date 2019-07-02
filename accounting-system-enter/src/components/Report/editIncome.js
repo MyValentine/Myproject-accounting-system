@@ -31,7 +31,7 @@ class EditIncome extends Component {
         // e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, value) => {
             if (!err) {
-                const url = 'http://localhost:3001/api/income/incomeUpdate';
+                const url = 'http://128.199.217.104:3001/api/income/incomeUpdate';
                 const data = {
                     id: this.state.index,
                     date: this.state.date,
@@ -77,7 +77,7 @@ class EditIncome extends Component {
         })
 
         const form = this.props.form;
-        const url = `http://localhost:3001/api/income/income/`+id;
+        const url = `http://128.199.217.104:3001/api/income/income/`+id;
         Axios.get(url, {
             mode: "no-cors"
         }).then(res => {
@@ -110,7 +110,7 @@ class EditIncome extends Component {
     }
 
     onDelete = () => {
-        const url = `http://localhost:3001/api/income/incomeUpdate/`;
+        const url = `http://128.199.217.104:3001/api/income/incomeUpdate/`;
         const data = {
             id: this.state.index,
             date: this.state.date,

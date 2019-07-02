@@ -30,7 +30,7 @@ class Expense extends Component {
         // e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, value) => {
             if (!err) {
-                const url = 'http://localhost:3001/api/expense/expense';
+                const url = 'http://128.199.217.104:3001/api/expense/expense';
                 const data = {
                     date: this.state.date,
                     selectedCategory: this.state.selectedCategory,

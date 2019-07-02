@@ -48,7 +48,7 @@ class AllReport extends Component {
             selectedCategory: 'ทั้งหมด',
         }
 
-        const urlExpense = `http://localhost:3001/api/expense/expense/`;
+        const urlExpense = `http://128.199.217.104:3001/api/expense/expense/`;
         axios.get(urlExpense, {
             mode: 'no-cors'
         })
@@ -64,7 +64,7 @@ class AllReport extends Component {
             this.setState({ categoryExpense: dataExpense })
         })
 
-        const urlIncome = `http://localhost:3001/api/income/income/`;
+        const urlIncome = `http://128.199.217.104:3001/api/income/income/`;
         axios.get(urlIncome, {
             mode: 'no-cors'
         })
@@ -120,7 +120,7 @@ class AllReport extends Component {
             //         total: l.total,
             //         selectedSource: l.selectedSource
             //     }
-            // const url = `http://localhost:3001/api/expense/expense/`;
+            // const url = `http://128.199.217.104:3001/api/expense/expense/`;
             // axios.get(url, dataObject, {
             //     mode: 'no-cors'
             // }).then(res => {
@@ -140,7 +140,7 @@ class AllReport extends Component {
             //         total: l.total,
             //         selectedSource: l.selectedSource
             //     }
-            // const url = `http://localhost:3001/api/expense/expense/`;
+            // const url = `http://128.199.217.104:3001/api/expense/expense/`;
             // axios.get(url, dataObject, {
             //     mode: 'no-cors'
             // }).then(res => {

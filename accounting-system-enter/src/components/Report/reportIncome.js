@@ -49,7 +49,7 @@ class ReportIncome extends Component{
             category: [],
             selectedCategory: 'ทั้งหมด',
         }
-        const url = `http://localhost:3001/api/income/income/`;
+        const url = `http://128.199.217.104:3001/api/income/income/`;
         axios.get(url, {
             mode: 'no-cors'
         })
