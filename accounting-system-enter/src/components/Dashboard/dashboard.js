@@ -140,6 +140,9 @@ class dashboard extends Component {
         if (this.state.isSelectYear === '2019') {
             expenseYearTotal = getMonthsTotal(dataExpense.filter(e => e.date.split(" ")[2] === "2019"));
             incomeYearTotal = getMonthsTotal(dataIncome.filter(e => e.date.split(" ")[2] === "2019"));
+        } else if(this.state.isSelectYear === '2018'){
+            expenseYearTotal = getMonthsTotal(dataExpense.filter(e => e.date.split(" ")[2] === "2018"));
+            incomeYearTotal = getMonthsTotal(dataIncome.filter(e => e.date.split(" ")[2] === "2018"));
         }
         console.log(expenseYearTotal)
         console.log(incomeYearTotal)
@@ -162,9 +165,6 @@ class dashboard extends Component {
                             <Option value="2018">2018</Option>
                         </Select>
                     </Col>
-
-                    {/* <h4 className="title">2014 Sales</h4>
-                    <p className="category">All products including Taxes</p> */}
                 </Row>
                 <Row className="content">
                     <Chart data={filteredData} options={options} responsiveOptions={responsiveOptions} type="Bar" className="ct-chart"/>

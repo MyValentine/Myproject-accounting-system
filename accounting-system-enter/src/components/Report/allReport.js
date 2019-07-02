@@ -205,7 +205,6 @@ class AllReport extends Component {
 
         // filter category
         if(this.state.selectedCategory !== "ทั้งหมด"){
-            
             dataIncome = dataIncome.filter(e => e.selectedCategory === this.state.selectedCategory);
         }
 

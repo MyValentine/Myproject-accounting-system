@@ -76,8 +76,8 @@ class App extends Component {
       <div className="logo" />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         <Row style={{textAlign: 'center'}}>
-          <Avatar shape="square" size={64}  src="enter1.png" />
-          
+          <Avatar shape="square" size={64}  src="enter4.png" />
+          {/* <img src="enter4.png" width="42" height="42"></img> */}
         </Row>
         {/* <Row style={{textAlign: 'center', marginTop: "2%"}}>
           Adisorn
