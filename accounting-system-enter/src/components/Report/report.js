@@ -49,7 +49,7 @@ class Report extends Component {
             category: [],
             selectedCategory: 'ทั้งหมด',
         }
-        const url = `http://128.199.217.104:3001/api/expense/expense/`;
+        const url = `http://localhost:3001/api/expense/expense/`;
         axios.get(url, {
             mode: 'no-cors'
         })
@@ -69,7 +69,7 @@ class Report extends Component {
     onTableChange = (value) => {
         console.log(value)
         if (value === "income") {
-            const url = `http://128.199.217.104:3001/api/income/income/`;
+            const url = `http://localhost:3001/api/income/income/`;
             axios.get(url, {
                 mode: 'no-cors'
             })
@@ -85,7 +85,7 @@ class Report extends Component {
         })
 
         } else if (value === "expense") {
-            const url = `http://128.199.217.104:3001/api/expense/expense/`;
+            const url = `http://localhost:3001/api/expense/expense/`;
             axios.get(url, {
                 mode: 'no-cors'
             })
@@ -125,7 +125,7 @@ class Report extends Component {
                 // }
                 console.log(this.state.selectedTable)
                 if (this.state.selectedTable === "expense") {
-                    // const url = `http://128.199.217.104:3001/api/expense/expenseUpdate/`;
+                    // const url = `http://localhost:3001/api/expense/expenseUpdate/`;
                     // axios.post(url, dataObject, {
                     //     mode: 'no-cors'
                     // }).then(res => {
@@ -136,7 +136,7 @@ class Report extends Component {
                     window.location.assign('/editExpense?id='+l.id);
                 } else if (this.state.selectedTable === "income") {
                     // console.log("income delete")
-                    // const url = `http://128.199.217.104:3001/api/income/incomeUpdate/`;
+                    // const url = `http://localhost:3001/api/income/incomeUpdate/`;
                     // axios.post(url, dataObject, {
                     //     mode: 'no-cors'
                     // }).then(res => {

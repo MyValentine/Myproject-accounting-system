@@ -12,6 +12,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
+    "moment": "^2.24.0",
     "truffle": "^5.0.21",
     "truffle-contract": "^4.0.19",
     "web3": "^1.0.0-beta.55"

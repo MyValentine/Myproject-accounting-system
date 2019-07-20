@@ -8,6 +8,10 @@ const Option = Select.Option;
 
 const columns = [
     {
+        title: "No.",
+        dataIndex: 'id'
+    },
+    {
         title: 'Month',
         dataIndex: 'date'
     },
@@ -49,7 +53,7 @@ class ReportExpense extends Component{
             category: [],
             selectedCategory: 'ทั้งหมด',
         }
-        const url = `http://128.199.217.104:3001/api/expense/expense/`;
+        const url = `http://localhost:3001/api/expense/expense/`;
         axios.get(url, {
             mode: 'no-cors'
         })
@@ -58,7 +62,7 @@ class ReportExpense extends Component{
         let dataExpense = [];
         getExpenseCategory().then(res => {
             res.forEach(e => {
-                console.log(e)
+                // console.log(e)
                 dataExpense.push(<Option key={e.name} value={e.name}>{e.name}</Option>)
             })
             dataExpense.push(<Option key="all" value="ทั้งหมด">ทั้งหมด</Option>)
@@ -70,7 +74,7 @@ class ReportExpense extends Component{
         let dataExpense = [];
         getExpenseCategory().then(res => {
             res.forEach(e => {
-                console.log(e)
+                // console.log(e)
                 dataExpense.push(<Option key={e.name} value={e.name}>{e.name}</Option>)
             })
             this.setState({ ExpenseCategory: dataExpense })
@@ -79,7 +83,7 @@ class ReportExpense extends Component{
         let dataSource = [];
         getSource().then(res => {
             res.forEach(e => {
-                console.log(e)
+                // console.log(e)
                 dataSource.push(<Option key={e.name} value={e.name}>{e.name}</Option>)
             })
             this.setState({ source: dataSource })
@@ -87,7 +91,8 @@ class ReportExpense extends Component{
     }
 
     render(){
-        console.log(this.state.data)
+        
+        // console.log(this.state.data)
         let data = this.state.data;
         let isTotal = 0;
         data = data.filter(e => e.isDelete === 'false');
@@ -139,6 +144,7 @@ class ReportExpense extends Component{
             // l.key = i;
             isTotal = isTotal + parseFloat(l.total.replace(/,/g,''), 10);
         })
+        console.log(data)
         return(
             <div>
                 <Row>

@@ -22,6 +22,8 @@ import AllReport from './components/Report/allReport';
 import ReportExpense from './components/Report/reportExpense';
 import ReportIncome from './components/Report/reportIncome';
 import ForgotPassword from './components/forgotPassword';
+import ActivityExpense from './components/ActivityLog/activityExpense';
+import ActivityIncome from './components/ActivityLog/activityIncome';
 
 
 const { Content, Footer, Sider } = Layout;
@@ -127,7 +129,17 @@ class App extends Component {
               <span>Full Report</span></Link>
           </Menu.Item>
         </SubMenu>
-        <Menu.Item key="7">
+        <SubMenu key="7" title={<span><Icon type="book" /><span>Activity Log</span></span>}>
+          <Menu.Item>
+            <Link onClick={() => this.setState({ isSiderOn: true })} to="/activityExpense">
+              <span>Activity Expense</span></Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link onClick={() => this.setState({ isSiderOn: true })} to="/activityIncome">
+              <span>Activity Income</span></Link>
+          </Menu.Item>
+        </SubMenu>
+        <Menu.Item key="8">
           <Link onClick={() => {
             firebase.auth().signOut();
             this.setState({ isSiderOn: false, isLoggedin: false });
@@ -176,6 +188,8 @@ class App extends Component {
                   <Route path="/reportExpense" component={ReportExpense} />
                   <Route path="/reportIncome" component={ReportIncome} />
                   <Route path="/forgotpassword" component={ForgotPassword} />
+                  <Route path="/activityexpense" component={ActivityExpense} />
+                  <Route path="/activityincome" component={ActivityIncome} />
                   {/* <Route path="/login" component={Login} /> */}
                   {/* </Switch> */}
                 </div>
