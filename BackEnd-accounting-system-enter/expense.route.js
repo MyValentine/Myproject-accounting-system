@@ -126,7 +126,7 @@ expenseRouters.route('/expense').get(async (req, res) => {
 	res.send(newResult)
 })
 
-// Get Transaction Expense 1
+// Get Transaction Expense 
 expenseRouters.route('/expensetransaction').get(async (req, res) => {
 	const result = await getExpenseTransaction(req)
 	const result2 = await getExpenseTransaction2(req)

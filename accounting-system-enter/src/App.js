@@ -57,7 +57,7 @@ class App extends Component {
       //   }
       // })
       if (user) {
-        console.log(user)
+        // console.log(user)
         if (user.emailVerified) {
           this.setState({ isSiderOn: true, isLoggedin: true })
         }
@@ -67,27 +67,22 @@ class App extends Component {
   }
 
   onCollapse = collapsed => {
-    // console.log(collapsed);
     this.setState({ collapsed });
   };
 
   render() {
-    console.log(this.state.isLoggedin);
+    // console.log(this.state.isLoggedin);
     let contentStyle = { padding: 24, background: '#fff', minHeight: 360, borderRadius: "20px" };
     let sider = <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
       <div className="logo" />
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+      <Menu theme="dark" mode="inline">
         <Row style={{textAlign: 'center'}}>
           <Avatar shape="square" size={64}  src="enter4.png" />
           {/* <img src="enter4.png" width="42" height="42"></img> */}
         </Row>
-        {/* <Row style={{textAlign: 'center', marginTop: "2%"}}>
-          Adisorn
-        </Row> */}
           
-        
-        <Menu.Item key="1">
-          <Link onClick={() => this.setState({ isSiderOn: true })} to="/"><Icon type="dashboard" />
+        <Menu.Item key="1" >
+          <Link onClick={() => this.setState({ isSiderOn: true })} to="/dashboard"><Icon type="dashboard" />
             {/* <span>Dashboard</span> */}
             <span>Dashboard</span></Link>
         </Menu.Item>
@@ -112,10 +107,6 @@ class App extends Component {
             <span>User</span></Link>
         </Menu.Item>
         <SubMenu key="6" title={<span><Icon type="book" /><span>Report</span></span>}>
-          {/* <Menu.Item>
-            <Link onClick={() => this.setState({ isSiderOn: true })} to="/report">
-              <span>Report</span></Link>
-          </Menu.Item> */}
           <Menu.Item>
             <Link onClick={() => this.setState({ isSiderOn: true })} to="/reportExpense">
               <span>Expense Report</span></Link>
@@ -129,14 +120,14 @@ class App extends Component {
               <span>Full Report</span></Link>
           </Menu.Item>
         </SubMenu>
-        <SubMenu key="7" title={<span><Icon type="book" /><span>Activity Log</span></span>}>
+        <SubMenu key="7" title={<span><Icon type="history" /><span>Activity Log</span></span>}>
           <Menu.Item>
             <Link onClick={() => this.setState({ isSiderOn: true })} to="/activityExpense">
-              <span>Activity Expense</span></Link>
+              <span>Expense Activity Log</span></Link>
           </Menu.Item>
           <Menu.Item>
             <Link onClick={() => this.setState({ isSiderOn: true })} to="/activityIncome">
-              <span>Activity Income</span></Link>
+              <span>Income Activity Log</span></Link>
           </Menu.Item>
         </SubMenu>
         <Menu.Item key="8">

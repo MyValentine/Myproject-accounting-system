@@ -205,31 +205,5 @@ contract Expense{
         _detail2[last_detail_transaction_id].expense_id = index;
         all_transaction_id.push(last_detail_transaction_id);
     }
-    
-    
-    
-    // function logAllActionToEvent(uint _id) public {
-    //     for(uint i=0; i < _detail[_id].actions.length; i++){
-    //         string memory a1 = _detail[_id].actions[i].date;
-    //         string memory b1 = _detail[_id].actions[i].selectedCategory;
-    //         string memory c1 = _detail[_id].actions[i].description;
-    //         string memory d1 = _detail[_id].actions[i].amount;
-    //         string memory e1 = _detail[_id].actions[i].total;
-    //         string memory f1 = _detail[_id].actions[i].selectedSource;
-    //         string memory g1 = _detail[_id].actions[i].isDelete;
-    //     }
-    // }
-    
-//     function saveAllActionToEvent(bytes32 _id) public {
-//     for(uint i = 0; i < Emails[_id].actions.length; i++){
-//             string memory a1 = Emails[_id].actions[i].Email;
-//             string memory b1 = Emails[_id].actions[i].Action;
-//             string memory c1 = Emails[_id].actions[i].Timestamp;
-//             string memory d1 = Emails[_id].actions[i].assignTo;
-//             string memory e1 = bytes32ToString(Emails[_id].actions[i].EmailIdA);
-
-//             emit actionArr(a1, b1, c1, d1, e1);
-//     }
-// }
    
 }

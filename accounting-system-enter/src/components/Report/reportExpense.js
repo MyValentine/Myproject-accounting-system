@@ -8,8 +8,9 @@ const Option = Select.Option;
 
 const columns = [
     {
+        key: "i",
         title: "No.",
-        dataIndex: 'id'
+        dataIndex: 'key'
     },
     {
         title: 'Month',
@@ -97,7 +98,7 @@ class ReportExpense extends Component{
         let isTotal = 0;
         data = data.filter(e => e.isDelete === 'false');
         data.map((l,i) => {
-            l.key = i;
+            l.key = i+1;
             l.edit = <Button type="primary" onClick={() => window.location.assign('/editExpense?id='+l.id)}>Edit</Button>
         })
 
@@ -144,7 +145,7 @@ class ReportExpense extends Component{
             // l.key = i;
             isTotal = isTotal + parseFloat(l.total.replace(/,/g,''), 10);
         })
-        console.log(data)
+        // console.log(data[0].key)
         return(
             <div>
                 <Row>

@@ -5,8 +5,10 @@ import 'antd/dist/antd.css';
 
 const columns = [
     {
+        key: 'id',
         title: "No.",
-        dataIndex: 'transaction_id'
+        dataIndex: "key",
+        align: 'center'
     },
     {
         title: 'Month',
@@ -15,6 +17,7 @@ const columns = [
     {
         title: 'Category',
         dataIndex: 'selectedCategory',
+        align: 'center'
     },
     {
         title: 'Description',
@@ -24,14 +27,18 @@ const columns = [
     {
         title: 'Amount',
         dataIndex: 'amount',
+        align: 'center'
     },
     {
         title: 'Total',
-        dataIndex: 'total'
+        dataIndex: 'total',
+        align: 'right'
+
     },
     {
         title: 'Source',
-        dataIndex: 'selectedSource'
+        dataIndex: 'selectedSource',
+        align: 'center'
     },
     {
         title: 'TimeStamp',
@@ -39,11 +46,13 @@ const columns = [
     },
     {
         title: 'Delete',
-        dataIndex: 'isDelete'
+        dataIndex: 'isDelete',
+        align: 'center'
     },
     {
         title: 'Expense ID',
-        dataIndex: 'expense_id'
+        dataIndex: 'expense_id',
+        align: 'center'
     }
 ];
 
@@ -63,15 +72,16 @@ class ActivityExpense extends Component {
     render(){
         let data = this.state.data;
         data.map((l,i) => {
-            l.key = i;
+            l.key = i+1;
         })
 
         console.log(data)
         return(
             <div>
                 <Row>
-                    Activity Expense
+                    <h1>Expense Activity Log</h1>
                 </Row>
+                <Row><hr></hr></Row>
                 <Row style={{ marginTop: "2%" }}>
                     <Col span={24}>
                         <Table columns={columns}  dataSource={data} />

@@ -8,8 +8,9 @@ const Option = Select.Option;
 
 const columns = [
     {
+        key: "id",
         title: "No.",
-        dataIndex: "id"
+        dataIndex: "key"
     },
     {
         title: 'Month',
@@ -96,7 +97,7 @@ class ReportIncome extends Component{
         let isTotal = 0;
         data = data.filter(e => e.isDelete === 'false');
         data.map((l,i) => {
-            l.key = i;
+            l.key = i+1;
             l.edit = <Button type="primary" onClick={() => window.location.assign('/editIncome?id='+l.id)}>Edit</Button>
         })
 

@@ -6,6 +6,7 @@ const ACCT_ADDRESS = '0x6edcb221d82aad901b9194c17c93ce1250d9dd8b'
 const GAS_LIMIT = 1000000
 const contract = require('truffle-contract')
 const incomeJson = require('../BackEnd-accounting-system-enter/truffle/build/contracts/Income.json')
+let moment = require('moment');
 
 // web3 connect etherium
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
@@ -23,7 +24,8 @@ incomeRouters.route("/income").post([
     if(!errors.isEmpty()){
         return res.status(422).json({errors: errors.array({onlyFirstError:true})})
     }else{
-		console.log(req.body.isDelete)
+		// console.log(req.body.isDelete)
+		let start = moment().format('DD MMM YYYY, h:mm:ss a');
         const result = await createIncome({
             date: req.body.date,
             selectedCategory: req.body.selectedCategory,
@@ -31,7 +33,8 @@ incomeRouters.route("/income").post([
             amount: ""+req.body.amount,
             total: ""+req.body.total,
 			selectedSource: req.body.selectedSource,
-			isDelete: req.body.isDelete
+			isDelete: req.body.isDelete,
+			timeStamp: start
         })
         console.log('Income Create.');
         console.log(result);
@@ -48,7 +51,8 @@ incomeRouters.route("/incomeUpdate/").post([
     if(!errors.isEmpty()){
         return res.status(422).json({errors: errors.array({onlyFirstError:true})})
     }else{
-		console.log(req.body.isDelete)
+		// console.log(req.body.isDelete)
+		let start = moment().format('DD MMM YYYY, h:mm:ss a');
         const result = await updateIncome({
 			index: req.body.id,
             date: req.body.date,
@@ -57,7 +61,8 @@ incomeRouters.route("/incomeUpdate/").post([
             amount: req.body.amount,
             total: req.body.total,
 			selectedSource: req.body.selectedSource,
-			isDelete: req.body.isDelete
+			isDelete: req.body.isDelete,
+			timeStamp: start
         })
         console.log('Income Create.');
         // console.log(result);
@@ -75,7 +80,8 @@ const updateIncome = (req) => {
         amount,
         total,
 		selectedSource,
-		isDelete
+		isDelete,
+		timeStamp
     } = req
     return new Promise((resolve, reject) => {
         Income.deployed().then((instance) => {
@@ -88,7 +94,8 @@ const updateIncome = (req) => {
 				amount,
 				total,
 				selectedSource,
-				isDelete,{
+				isDelete,
+				timeStamp,{
 					from: ACCT_ADDRESS,
 					gas: GAS_LIMIT
 				}
@@ -115,6 +122,22 @@ incomeRouters.route('/income').get(async (req, res) => {
 	res.send(newResult)
 })
 
+// Get Transaction Income
+incomeRouters.route('/incometransaction').get(async(req, res) => {
+	const result = await getIncomeTransaction(req)
+	const result2 = await getIncomeTransaction2(req)
+
+	var t1 = []
+	var t2 = []
+	resultToTable(t1,result)
+	resultToTable(t2,result2)
+
+	var newResult = []
+	mergeResultArray(newResult,t1)
+	mergeResultArray(newResult,t2)
+	res.send(newResult)
+})
+
 const createIncome = (req) => {
     const {
         date,
@@ -123,7 +146,8 @@ const createIncome = (req) => {
         amount,
         total,
 		selectedSource,
-		isDelete
+		isDelete,
+		timeStamp
     } = req
     return new Promise((resolve, reject) => {
         Income.deployed().then((instance) => {
@@ -135,7 +159,8 @@ const createIncome = (req) => {
 				amount,
 				total,
 				selectedSource,
-				isDelete,{
+				isDelete,
+				timeStamp,{
 					from: ACCT_ADDRESS,
 					gas: GAS_LIMIT
 				}
@@ -163,6 +188,32 @@ const getAllIncome = (req) => {
 		Income.deployed().then((instance) => {
 			let data = instance
 			resolve(data.getAllData({
+				from: ACCT_ADDRESS,
+				gas: GAS_LIMIT
+			}))
+		})
+	})
+}
+
+const getIncomeTransaction = (req) => {
+	const { id } = req.params
+	return new Promise((resolve, reject) => {
+		Income.deployed().then((instance) => {
+			let data = instance
+			resolve(data.getDataFromTransactionID({
+				from: ACCT_ADDRESS,
+				gas: GAS_LIMIT
+			}))
+		})
+	})
+}
+
+const getIncomeTransaction2 = (req) => {
+	const { id } = req.params
+	return new Promise((resolve, reject) => {
+		Income.deployed().then((instance) => {
+			let data = instance
+			resolve(data.getDataFromTransactionID2({
 				from: ACCT_ADDRESS,
 				gas: GAS_LIMIT
 			}))
@@ -215,6 +266,28 @@ const hexToString = (data,k) => {
 		}
 	}
 }
+
+const mergeResultArray = (newResult,data) => {
+	if (newResult.length == 0){
+	  for( i = 0 ; i < data.length ; i++){
+		var temp = {}    
+		for (var key in data[i]) {
+		  if (isNaN(key) && !key.includes("length")) {
+			temp[key] = data[i][key]
+		  }
+		}
+		newResult.push(temp)
+	  }
+	}else {
+	  for( i = 0 ; i < data.length ; i++){ 
+		for (var key in data[i]) {
+		  if (isNaN(key) && !key.includes("length")) {
+			newResult[i][key] = data[i][key]
+		  }
+		}
+	  }
+	}
+  }
 
 
 module.exports = incomeRouters
