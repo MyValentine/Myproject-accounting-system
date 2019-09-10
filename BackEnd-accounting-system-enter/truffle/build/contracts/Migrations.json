@@ -1390,12 +1390,12 @@
     "8995": {
       "events": {},
       "links": {},
-      "address": "0xf82470a24DE631BCecc9EfB79212661a44bCB040",
-      "transactionHash": "0x558e5a4b904027c01b2f53908ab9790bfa009e0e664561dd23ce1155c3e20d3d"
+      "address": "0x5E6529Adf3C5482D838dED3E457A01807D4fBE3b",
+      "transactionHash": "0x1fa149bfa0c68cadd187f9a6fae5c756bf27e709547548d771e4fe16a1811f39"
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-07-22T11:20:10.388Z",
+  "updatedAt": "2019-08-19T04:18:35.493Z",
   "devdoc": {
     "methods": {}
   },
