@@ -13,3 +13,8 @@ run parity
 1) เข้า path -> Parity
 2) พิมพ์คำสั่ง sudo parity --config node0.toml --jsonrpc-hosts all --jsonrpc-interface all
 ** หากต้องการ new account ใหม่ ใช้คำสั่ง sudo parity account new --config node0.toml
+
+หากจะ migrate truffle ใหม่
+1) เข้า path -> BackEnd-accounting-system-enter/truffle
+2) พิมพ์คำสั่ง truffle console --network development
+3) พิมพ์คำสั่ง migrate --reset
