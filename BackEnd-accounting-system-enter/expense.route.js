@@ -9,9 +9,9 @@ const expenseJson = require('./truffle/build/contracts/Expense.json')
 let moment = require('moment');
 
 // web3 connect etherium
-const web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.50.75:8541"))
+const web3 = new Web3(new Web3.providers.HttpProvider("http://157.245.151.157:8541"))
 let Expense = contract(expenseJson)
-Expense.setProvider("http://192.168.50.75:8541")
+Expense.setProvider("http://157.245.151.157:8541")
 
 // Create Expense
 expenseRouters.route("/expense").post([

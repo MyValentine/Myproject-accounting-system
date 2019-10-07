@@ -9,9 +9,9 @@ const incomeJson = require('./truffle/build/contracts/Income.json')
 let moment = require('moment');
 
 // web3 connect etherium
-const web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.50.75:8541"))
+const web3 = new Web3(new Web3.providers.HttpProvider("http://157.245.151.157:8541"))
 let Income = contract(incomeJson)
-Income.setProvider("http://192.168.50.75:8541")
+Income.setProvider("http://157.245.151.157:8541")
 
 // Create Income
 incomeRouters.route("/income").post([
