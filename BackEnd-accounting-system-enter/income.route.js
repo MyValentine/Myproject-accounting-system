@@ -2,16 +2,16 @@ const express = require('express')
 const incomeRouters = express.Router()
 const { check, validationResult } = require('express-validator/check')
 const Web3 = require('web3')
-const ACCT_ADDRESS = '0x5419b10eabe5346923507d63dfab6ea11a72abc8'
+const ACCT_ADDRESS = '0xa35F71ab0bfc20418392Cc7580Ff4b312fD6f1E0'
 const GAS_LIMIT = 1000000
 const contract = require('truffle-contract')
-const incomeJson = require('../BackEnd-accounting-system-enter/truffle/build/contracts/Income.json')
+const incomeJson = require('./truffle/build/contracts/Income.json')
 let moment = require('moment');
 
 // web3 connect etherium
-const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+const web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.50.75:8541"))
 let Income = contract(incomeJson)
-Income.setProvider("http://localhost:8545")
+Income.setProvider("http://192.168.50.75:8541")
 
 // Create Income
 incomeRouters.route("/income").post([

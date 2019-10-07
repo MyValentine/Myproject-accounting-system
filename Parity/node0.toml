@@ -1,5 +1,5 @@
 [parity]
-chain = "validator.json"
+chain = "./validator.json"
 base_path = "/node0"
 
 [network]
@@ -18,11 +18,11 @@ disable = false
 disable = true
 
 [account]
-unlock = ["0x5419b10eabe5346923507d63dfab6ea11a72abc8"]
-password = ["password.File"]
+unlock = ["0x12c2005f33b465cdbeaf88c27fb3de49dd177667"]
+password = ["./password.file"]
 
 [mining]
-engine_signer = "0x5419b10eabe5346923507d63dfab6ea11a72abc8"
+engine_signer = "0x12c2005f33b465cdbeaf88c27fb3de49dd177667"
 reseal_on_txs = "none"
 force_sealing = true
 usd_per_tx = "0"

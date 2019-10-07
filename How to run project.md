@@ -18,3 +18,9 @@ run parity
 1) เข้า path -> BackEnd-accounting-system-enter/truffle
 2) พิมพ์คำสั่ง truffle console --network development
 3) พิมพ์คำสั่ง migrate --reset
+
+0x12c2005f33b465cdbeaf88c27fb3de49dd177667
+
+
+parity --config node0.toml account new
+parity account new --config ./validator.json --keys-path /node0/keys

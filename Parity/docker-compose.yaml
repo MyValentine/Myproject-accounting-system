@@ -1,0 +1,24 @@
+version: '3'
+services: 
+  parity:
+    build: .
+    volumes: 
+      - parity-data:/root/.local/share/io.parity.ethereum/chains/ethereum/db
+      - ./:/parity/config
+    command: 
+      --config ./node0.toml
+      --engine-signer 0x12c2005f33b465cdbeaf88c27fb3de49dd177667
+      --unlock 0x12c2005f33b465cdbeaf88c27fb3de49dd177667
+      --no-persistent-txqueue
+      --jsonrpc-hosts all
+      --jsonrpc-server-threads 8
+      --jsonrpc-threads 0
+      --jsonrpc-interface all
+      --jsonrpc-cors all
+      --tracing on
+    ports: 
+      - 8545:8545
+      - 8514:8514
+      - 30303:30303
+volumes: 
+  parity-data:
