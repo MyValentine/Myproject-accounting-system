@@ -62,7 +62,7 @@ class ActivityExpense extends Component {
         this.state={
             data: []
         }
-        const url = `http://localhost:3001/api/expense/expensetransaction/`;
+        const url = `http://157.245.151.157:3001/api/expense/expensetransaction/`;
         axios.get(url, {
             mode: 'no-cors'
         })

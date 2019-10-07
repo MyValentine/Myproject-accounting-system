@@ -97,13 +97,13 @@ class dashboard extends Component {
             
         }
 
-        const url = `http://localhost:3001/api/expense/expense/`;
+        const url = `http://157.245.151.157:3001/api/expense/expense/`;
         axios.get(url, {
             mode: 'no-cors'
         })
             .then(res => { this.setState({ dataExpense: res.data }) })
 
-        const url2 = `http://localhost:3001/api/income/income/`;
+        const url2 = `http://157.245.151.157:3001/api/income/income/`;
         axios.get(url2, {
             mode: 'no-cors'
         })

@@ -54,7 +54,7 @@ class ReportExpense extends Component{
             category: [],
             selectedCategory: 'ทั้งหมด',
         }
-        const url = `http://localhost:3001/api/expense/expense/`;
+        const url = `http://157.245.151.157:3001/api/expense/expense/`;
         axios.get(url, {
             mode: 'no-cors'
         })

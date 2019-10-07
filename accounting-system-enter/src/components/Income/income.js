@@ -29,7 +29,7 @@ class Income extends Component {
         // e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, value) => {
             if (!err) {
-                const url = 'http://localhost:3001/api/income/income';
+                const url = 'http://157.245.151.157:3001/api/income/income';
                 const data = {
                     date: this.state.date,
                     selectedCategory: this.state.selectedCategory,

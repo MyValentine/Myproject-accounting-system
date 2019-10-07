@@ -32,7 +32,7 @@ class EditExpense extends Component {
         // e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, value) => {
             if (!err) {
-                const url = 'http://localhost:3001/api/expense/expenseUpdate';
+                const url = 'http://157.245.151.157:3001/api/expense/expenseUpdate';
                 const data = {
                     id: this.state.index,
                     date: this.state.date,
@@ -78,7 +78,7 @@ class EditExpense extends Component {
             this.setState({ source: dataSource })
         })
         const form = this.props.form;
-        const url = `http://localhost:3001/api/expense/expense/`+id;
+        const url = `http://157.245.151.157:3001/api/expense/expense/`+id;
         Axios.get(url, {
             mode: 'no-cors'
         }).then(res => {
@@ -112,7 +112,7 @@ class EditExpense extends Component {
     }
 
     onDelete = () => {
-        const url = `http://localhost:3001/api/expense/expenseUpdate/`;
+        const url = `http://157.245.151.157:3001/api/expense/expenseUpdate/`;
         const data = {
             id: this.state.index,
             date: this.state.date,

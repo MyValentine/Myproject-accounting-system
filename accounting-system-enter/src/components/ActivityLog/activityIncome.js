@@ -60,7 +60,7 @@ class ActivityIncome extends Component {
         this.state={
             data: []
         }
-        const url = `http://localhost:3001/api/income/incometransaction/`;
+        const url = `http://157.245.151.157:3001/api/income/incometransaction/`;
         axios.get(url, {
             mode: 'no-cors'
         })
